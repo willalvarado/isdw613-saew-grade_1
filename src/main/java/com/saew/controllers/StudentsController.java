@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.saew.SAEWApplication;
 import com.saew.dto.Student;
 
 @RestController
@@ -16,37 +17,37 @@ public class StudentsController {
     
     
     public List<Student> getAllStudents() {
-        //TODO: Implement the method
-        throw new UnsupportedOperationException();
+        List<Student> students = Student.getAllStudents(); 
+        return students;
     }
     
 
     
     public List<Student> getStudentByName(String name) {    
-        //TODO: Implement the method
-        throw new UnsupportedOperationException();
+        List<Student> students = Student.getStudentsByName(name); 
+        return students;
     }
        
     public ResponseEntity<Student> getStudentById(String id) {
-        //TODO: Implement the method
-        throw new UnsupportedOperationException();
+        Student student = Student.getStudentById(id); 
+        return ResponseEntity.ok(student);
     }
 
     @PostMapping
-    public ResponseEntity<Student> createStudent(Student student) {
-        //TODO: Implement the method
-        throw new UnsupportedOperationException();
+    public ResponseEntity<Student> createStudent(Student students) {
+        Student createdStudent = Student.createStudent(students); 
+        return ResponseEntity.ok(createdStudent);
     }
 
     @PatchMapping
     public ResponseEntity<Student> updateProduct(Student product) {
-        //TODO: Implement the method
-        throw new UnsupportedOperationException();   
+        Student updatedStudent = Student.updateStudent(product); 
+        return ResponseEntity.ok(updatedStudent); 
     }
     
-    public ResponseEntity<Student> deleteStudent(String id) {
-        //TODO: Implement the method
-        throw new UnsupportedOperationException();   
+    public ResponseEntity<Student> deleteStudent(String ds) {
+        Student.deleteStudent(ds); 
+        return ResponseEntity.noContent().build();   
     }
 
     
